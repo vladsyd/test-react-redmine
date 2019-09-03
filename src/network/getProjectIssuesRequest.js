@@ -1,11 +1,9 @@
 import { getIssueTimeRequest } from './getIssueTimeRequest';
+import { getBasicRequestHeaders } from './getBasicRequestHeaders';
 
 export function getProjectIssuesRequest(dispatch, projectId, type, errorType) {
 
-  let headers = new Headers();
-
-  let apiKey = localStorage.getItem('apiKey');
-  headers.append('X-Redmine-API-Key', apiKey);
+  let headers = getBasicRequestHeaders();
 
   //GET /issues.json?project_id=2
 

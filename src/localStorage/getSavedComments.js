@@ -1,6 +1,13 @@
 export function getSavedComments(projects) {
 
-    let comments = JSON.parse(localStorage.getItem('comments'));
+    let comments;
+
+    try {
+        comments = JSON.parse(localStorage.getItem('comments'));
+    } catch (error) {
+        console.log('Error in ' + getSavedComments.name + ' : ' + error);
+        return projects;
+    }
 
     return projects.map((project) => {
         const { id } = project;

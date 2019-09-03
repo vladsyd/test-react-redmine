@@ -1,9 +1,8 @@
+import { getBasicRequestHeaders } from './getBasicRequestHeaders'; 
+
 export function getProjects(dispatch, type) {
 
-  let headers = new Headers();
-
-  let apiKey = localStorage.getItem('apiKey');
-  headers.append('X-Redmine-API-Key', apiKey);
+  let headers = getBasicRequestHeaders();
 
   fetch('https://redmine.ekreative.com/projects.json', { headers })
     .then((resp) => {

@@ -1,12 +1,10 @@
 import moment from "moment";
 import { getIssueTimeRequest } from './getIssueTimeRequest';
+import { getBasicRequestHeaders } from './getBasicRequestHeaders';
 
 export function logIssueTimeRequest(dispatch, issues, issueId, hours, minutes, type) {
 
-    let headers = new Headers();
-
-    let apiKey = localStorage.getItem('apiKey');
-    headers.append('X-Redmine-API-Key', apiKey);
+    let headers = getBasicRequestHeaders();
 
     // POST /time_entries.json
 
